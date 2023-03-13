@@ -57,14 +57,14 @@ The intersection between provided definitions of schema and threshold is clear: 
 
 ### 2.3 Developing Solutions for Schema & Threshold 
 We are concerned with two primary methods for initializing the population. Random configuration of n-bit strings, and some constant calculated using only the trait set. The later of which will inform one of our methods of calculating a threshold. The first Schema function, $s_1$, is trivial.
-  1) generate $X$ random $n$-bit string representations of gene sequencues
+  1) generate $X$ $n$-bit string representations of gene sequencues with zeros
   2) collect $k$-highest-valued traits from the trait set $\mathbb T$
   3) enable their corresponding bit in each gene sequence while incrementing a counter with the weight of each trait you enable
   4) if the counter exceeds $m$, subtract the last value added and terminate
   5) otherwise continue enabling bits of $k$-highest-valued traits
  
 Recall that $n$ is the size of the universal trait set given by $|\mathbb T|$, and $m$ is the constraint placed on cost/weight. Note that $X$ is the population size here and $k$ is arbitrary, though ideally $\(n/2\)$. Taking the value sum of the bit string yielded by $s_1$ does not behave well as a threshold because it will always undershoot the real optima. we propose a similar solution, $s_2$, that takes longer to compute but remains poplynomial, a procedural speculation, while yielding more optimal bit-strings on average.
-   1) generate $X$ random $n$-bit string representations of gene sequencues
+   1) generate $X$ $n$-bit string representations of gene sequencues with zeros
    2) create a sorted copy of the trait set $\mathbb T_2$, best to worst in terms of value
    3) move through $\mathbb T_2$ while noting order-preserved trait set $\mathbb T$, and enable corresponding bit in each gene sequence while incrementing a counter with the weight of each trait you enable
    4) if the counter exceeds $m$, subtract the last value added and terminate
