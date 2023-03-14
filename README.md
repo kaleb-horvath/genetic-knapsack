@@ -107,10 +107,18 @@ Other ways to increase random probability influence over the evolution process i
 
 ## 4. Testing
 ```code
-build initial pop with $init_fitness_func
+build initial pop with $schema
 repeat $max_iterations times
-  check $threshold
-  rank and score population with $evolve_fitness_func
-  do evolve once 
-    (...carry X/2 genes over, breed them to size)
+  do check $threshold
+  do rank and score population with $fitness_func
+  do evolve once (
+      ...
+      carry $size/$reduction_factor genes over, 
+      breed them to size with $mutation_rate
+      ...
+  )
 ```
+Where
+  1) $schema is the method by which we create the population (s1, s2, etc.)
+  2) $max_iterations is upper bound on evolution
+  3) $threshold is the point of convergence
