@@ -106,3 +106,11 @@ The afforementioned phenomenon is described by the simple fact that a larger pop
 Other ways to increase random probability influence over the evolution process include boosting the mutation rate, $r$, to something $\geq 0.50$. The general idea is to incease variance without the aid of random proability. Reproducing two babies with each crossover is a good example of this idea in effect. 
 
 ## 4. Testing
+```code
+build initial pop with $init_fitness_func
+repeat $max_iterations times
+  check $threshold
+  rank and score population with $evolve_fitness_func
+  do evolve once 
+    (...carry X/2 genes over, breed them to size)
+```
