@@ -106,8 +106,9 @@ The afforementioned phenomenon is described by the simple fact that a larger pop
 Other ways to increase random probability influence over the evolution process include boosting the mutation rate, $r$, to something $\geq 0.50$. The general idea is to incease variance without the aid of random proability. Reproducing two babies with each crossover is a good example of this idea in effect. 
 
 ## 4. Testing
+General pseudo-code,
 ```code
-build initial pop with $schema
+build initial pop with $schema of $size
 repeat $max_iterations times
   do check $threshold
   do rank and score population with $fitness_func
@@ -118,7 +119,12 @@ repeat $max_iterations times
       ...
   )
 ```
-Where
-  1) $schema is the method by which we create the population (s1, s2, etc.)
-  2) $max_iterations is upper bound on evolution
-  3) $threshold is the point of convergence
+where,
+  1) `$schema` is the method by which we create the population ($s1$, $s2$, etc.)
+  2) `$max_iterations` is upper bound on evolution
+  3) `$threshold` is the point of convergence
+  4) `$fitness_func` method by which to evaluate genetic sequenes
+  5) `$size` population size
+  6) `$reduction_factor` factor by which to reduce population by between evolutions
+  7) `$mutation_rate` percent chance that mutation will occur
+.
